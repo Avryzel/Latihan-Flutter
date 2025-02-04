@@ -1,5 +1,6 @@
-import 'package:aplikasi_kontak/start_screen.dart';
+import 'package:aplikasi_kontak/app_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:aplikasi_kontak/start_screen.dart';
 
 class Kontak extends StatefulWidget {
   const Kontak({super.key});
@@ -11,9 +12,21 @@ class Kontak extends StatefulWidget {
 }
 
 class _KontakState extends State<Kontak> {
+  var _activeScreen = 'start-screen';
+
+  void _switchScreen() {
+    setState(() {
+      _activeScreen = 'app-screen';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    const Widget screenWidget = StartScreen();
+    Widget screenWidget = StartScreen(_switchScreen);
+
+    if (_activeScreen == 'app-screen') {
+      screenWidget = const AppScreen();
+    }
 
     return MaterialApp(
       home: Scaffold(
