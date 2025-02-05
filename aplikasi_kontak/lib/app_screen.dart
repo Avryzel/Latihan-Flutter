@@ -12,6 +12,17 @@ class AppScreen extends StatefulWidget {
 class _AppScreenState extends State<AppScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Text('Kontak');
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Aplikasi Kontak'),
+        backgroundColor: const Color.fromARGB(255, 255, 158, 190),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.add),
+          ),
+        ],
+      ),
+    );
   }
 }
